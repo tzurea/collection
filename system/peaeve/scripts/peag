@@ -1,0 +1,9 @@
+#!/bin/bash
+source /home/zuplex/.bashrc
+export PULSE_RUNTIME_PATH="/run/user/$(id -u)/pulse/"
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+export DISPLAY=:0.0
+export LD_LIBRARY_PATH=/usr/lib/:/opt/zoom/
+/usr/bin/xset s off
+/home/zuplex/.usr/system/peaeve/scripts/startmeeting &

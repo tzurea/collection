@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo $1
+lynx -dump -display_charset UTF-8 https://www.worldometers.info/coronavirus/country/india/ | grep "new cases" | head -n 1  
+
+lynx -dump -display_charset UTF-8 https://www.worldometers.info/coronavirus/country/nepal/ | grep "new cases" | head -n 1  
+
+

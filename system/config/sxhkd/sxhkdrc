@@ -1,0 +1,37 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	xfce4-terminal
+
+# program launcher
+super + @space
+	dmenu_run
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+## system maintainence
+
+# hibernate
+super + h 
+	sudo systemctl hibernate
+
+# sleep 
+super + s 
+	sudo systemctl sleep 
+
+super + k 
+	sleep 5;xset dpms force off
+
+## Image operation
+# capture image and copy to clipboard
+super + i
+	$CAP_TO_IMG 
+
+# capture image and convert to text 
+super + t
+	$TESS_TO_IMG 

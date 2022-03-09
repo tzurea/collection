@@ -1,0 +1,2 @@
+cd /home/zuplex/.usr/academic/engentrance/engdote/
+/usr/bin/python /home/zuplex/.usr/academic/engentrance/engdote/main.py --type daily

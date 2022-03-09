@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/telegram-upload --force-file --to "https://t.me/joinchat/nw6qsKiIyFo0M2Vl"  /home/zuplex/dist/recordev2/$(date +%b%d)*.mkv

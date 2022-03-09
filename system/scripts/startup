@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+SXHKD_CONFIG=$HOME/.usr/system/config/sxhkd/sxhkdrc
+
+export UTIL_SCRIPTS_DIR=$HOME/.usr/system/scripts/
+export TESS_TO_IMG=$UTIL_SCRIPTS_DIR/tesclip
+export CAP_TO_IMG=$UTIL_SCRIPTS_DIR/imgclip
+export QT_QPA_PLATFORMTHEME=gtk2
+export ANKI_NOHIGHDPI=1
+
+## Shortcut key bindings
+pgrep -x sxhkd > /dev/null || sxhkd -c $SXHKD_CONFIG &
+
+## Desktop Configuration
+xset -dpms
+xset s off
+dunst --config $HOME/.config/dunst/dunstrc & 
+picom &
+sylpheed &
+gnome-pomodoro &
+urxvtd -q &
+~/.fehbg &
+xrandr --output VGA1 --mode 1024x768 --rate 75.03 2> /dev/null
+xrdb .Xresources
+
+
+

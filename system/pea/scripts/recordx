@@ -1,0 +1,10 @@
+#!/bin/bash
+source /home/zuplex/.bashrc
+export PULSE_RUNTIME_PATH="/run/user/$(id -u)/pulse/"
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+export DISPLAY=:0.0
+export LD_LIBRARY_PATH=/usr/lib/
+VIDEO_FILE=/home/zuplex/dist/record2/$(date +%b%d-%H-%M-%S).mkv
+/usr/bin/ffmpeg -video_size 1024x768 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2 -i default $VIDEO_FILE
+

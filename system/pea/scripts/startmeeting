@@ -1,0 +1,63 @@
+#!/usr/bin/python
+import os
+import sys
+import time
+import shlex
+import datetime
+import subprocess
+from selenium import webdriver
+from urllib.parse import urlparse
+from urllib.parse import parse_qs
+from bs4 import BeautifulSoup as bs
+
+model_link='https://zoom.us/w/92414353323?tk=Yhvv1SGvA-gyp4N7EdV4Ul0NqkKPrkAqnoaKEZPPW2Q.DQMAAAAWPzKvZhYwY1hwN18ybVQ1T3BXYVJPdDd3ZkJRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&pwd=ZHhWRWlPWlVPcUJaMDdmZTc2clhkdz09#success'
+FFMPEG='/usr/bin/ffmpeg -video_size 1360x768 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2 -i default  '
+TELEUP='/usr/bin/sudo /usr/bin/telegram-upload --to "https://t.me/joinchat/hb90pimGw5cyODdl"  '
+ZOOM='/opt/zoom/ZoomLauncher '
+VID_ROOT='/home/zuplex/Videos/Recordings/'
+KILL_FFMPEG = shlex.split('/usr/bin/sudo killall ffmpeg')
+
+def extract_zoom_links(source):
+    soup = bs(page_source, features="lxml")
+    for anchor in soup.findAll("div", attrs={"lecture-card-footer"}):
+        link = anchor.find("a")["href"]
+        if "zoom" in link:
+            return link
+
+def make_zoommtg_url(link):
+    parsed_url = urlparse(link)
+    confno = parsed_url.path[3:]
+    pwd = parse_qs(parsed_url.query)['pwd'][0]
+    tk = parse_qs(parsed_url.query)['tk'][0]
+    zoommtg = "zoommtg://zoom.us/join?action=join&confno="+confno+"&pwd="+pwd+"&tk="+tk+"&browser=chrome"
+    return zoommtg
+
+def get_credentials():
+        return ['trilochanbhusal108@gmail.com','#108Chants.']
+        #return ['deep.chaulagain2004@gmail.com','2#TrYXVG4gga3R7']
+
+def get_page_source(creds):
+    user_email = creds[0]
+    user_passwd = creds[1]
+    website_url = "https://pea.edu.np/login"
+    email_id = "email"
+    pass_id = "password"
+    button_class = ".btn-auth"
+    web_driver = webdriver.Firefox()
+    web_driver.get(website_url)
+    web_driver.find_element_by_id(email_id).send_keys(user_email)
+    web_driver.find_element_by_id(pass_id).send_keys(user_passwd)
+    web_driver.find_element_by_css_selector(button_class).click()
+    page_source = web_driver.page_source
+    web_driver.quit()
+    return page_source
+
+creds = get_credentials()
+page_source = get_page_source(creds)  
+zoom_link = extract_zoom_links(page_source)
+zoomtg_link = make_zoommtg_url(zoom_link)
+#zoomtg_link = make_zoommtg_url(model_link)
+zoom_command = ZOOM +  zoomtg_link
+zoom_command = shlex.split(zoom_command)
+print(zoomtg_link)
+subprocess.call(zoom_command)

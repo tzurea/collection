@@ -1,0 +1,6 @@
+#!/bin/bash
+/usr/bin/python /home/zuplex/.usr/academic/engentrance/engdote/makepdf/pea/pdf.py > /tmp/tmp.md
+/usr/bin/pandoc -f markdown+tex_math_single_backslash+tex_math_double_backslash+tex_math_dollars -t html --mathjax  /tmp/tmp.md -o /tmp/tmp.html --quiet
+/usr/bin/pandoc --template hovel --standalone --quiet --mathjax --from html+tex_math_single_backslash+tex_math_double_backslash /tmp/tmp.html -o /tmp/peaexam$(date +%y%b%d).pdf   --listings --pdf-engine=xelatex
+#/usr/bin/sed -i s/\mathrm//g /tmp/tmp.html
+/usr/bin/telegram-upload --to "https://t.me/joinchat/nw6qsKiIyFo0M2Vl" /tmp/peaexam$(date +%y%b%d).pdf 

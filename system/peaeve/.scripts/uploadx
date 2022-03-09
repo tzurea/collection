@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/telegram-upload --to "https://t.me/joinchat/hb90pimGw5cyODdl"  /home/chrome/dist/record2/$(date +%b%d)*.mkv
