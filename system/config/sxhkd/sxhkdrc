@@ -35,3 +35,7 @@ super + i
 # capture image and convert to text 
 super + t
 	$TESS_TO_IMG 
+
+# Print screen shot
+Print
+	$NO_SELECT_IMG 

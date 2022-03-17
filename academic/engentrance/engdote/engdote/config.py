@@ -1,7 +1,7 @@
 DATABASE = "/home/zuplex/.usr/academic/engentrance/engdote/build/db/data.db"
 MODEL_TEST_NUMBER = 160
-TOKEN = "0l8ya1twx3nERISvSzreGcSZ213uutMGsWhzLwFYLteK7zyIyNNqrtyKLbuP" #tokendeep
 TOKEN = "o5hXj22yc7hV1sUtSHdcbCA0USBkv1AoBTVuqdt7Bcrb35encsS7eP1rNjcb"
+TOKEN = "0l8ya1twx3nERISvSzreGcSZ213uutMGsWhzLwFYLteK7zyIyNNqrtyKLbuP" #tokendeep
 DAILY_TEST_URI = "https://api.engineeringdote.com/daily-test/start-exam"
 MODEL_TEST_URI = "https://api.engineeringdote.com/model-test/start-exam/{}".format(
     MODEL_TEST_NUMBER

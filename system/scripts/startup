@@ -5,8 +5,9 @@ SXHKD_CONFIG=$HOME/.usr/system/config/sxhkd/sxhkdrc
 export UTIL_SCRIPTS_DIR=$HOME/.usr/system/scripts/
 export TESS_TO_IMG=$UTIL_SCRIPTS_DIR/tesclip
 export CAP_TO_IMG=$UTIL_SCRIPTS_DIR/imgclip
-export QT_QPA_PLATFORMTHEME=gtk2
+export NO_SELECT_IMG=$UTIL_SCRIPTS_DIR/imgclip-no-select
 export ANKI_NOHIGHDPI=1
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 ## Shortcut key bindings
 pgrep -x sxhkd > /dev/null || sxhkd -c $SXHKD_CONFIG &
