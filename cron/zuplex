@@ -1,0 +1,7 @@
+35 6 * * 0,2,3,5 /home/zuplex/.usr/system/pea/scripts/peag  
+36 6 * * 0,2,3,5 /home/zuplex/.usr/system/pea/scripts/record 
+33 7 * * 0,2,3,5 /home/zuplex/.usr/system/pea/scripts/recordx	 
+00 18 * * 0,2,3,5 /home/zuplex/.usr/system/peaeve/scripts/peag  
+02 18 * * 0,2,3,5 /home/zuplex/.usr/system/peaeve/scripts/record 
+02 19 * * 0,2,3,5 /home/zuplex/.usr/system/peaeve/scripts/recordx	 
+50 17 * * 0,2,3,5 /home/zuplex/.usr/system/peaeve/scripts/test	 

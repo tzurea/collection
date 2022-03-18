@@ -1,0 +1,11 @@
+00 05 * * * /home/zuplex/.usr/system/scripts/dailycap
+30 07 * * 0,2,3,5 /usr/bin/sudo killall ffmpeg
+31 07 * * 0,2,3,5 /home/zuplex/.usr/system/pea/scripts/upload
+32 08 * * 0,2,3,5 /usr/bin/sudo killall ffmpeg
+33 08 * * 0,2,3,5 /home/zuplex/.usr/system/pea/scripts/uploadx
+40 08 * * 0,2,3,5 /usr/bin/poweroff
+00 19 * * 0,2,3,5 /usr/bin/sudo killall ffmpeg
+01 19 * * 0,2,3,5 /home/zuplex/.usr/system/peaeve/scripts/upload
+02 20 * * 0,2,3,5 /usr/bin/sudo killall ffmpeg
+03 20 * * 0,2,3,5 /home/zuplex/.usr/system/peaeve/scripts/uploadx
+10 20 * * 0,2,3,5 /usr/bin/poweroff
